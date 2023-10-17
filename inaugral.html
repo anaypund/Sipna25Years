@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./Media/sipnalogo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;1,600&family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <title>Sipna COET</title>
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li>
+                <i class="fa-solid fa-trophy" style="color: #FFD700;"></i>
+                <span>Accredited By NAAC with Grade 'A+'</span>
+            </li>
+            <li>
+                <i class="fa-solid fa-graduation-cap" style="color: #FFD700;"></i>
+                <span>NBA Accredited All Branches</span>
+            </li>
+        </ul>
+        <ul>
+            <li>FAQ</li>
+            <a href="./contact.html"><li>Contact</li></a>
+        </ul>
+    </div>
+
+    <div class="sec-header">
+        <img id="head-logo" src="./Media/head-logo-main.png" alt="">
+        <ul>
+            <li> 0721 - 2522341/42 (Office)</li>
+            <li>office@sipnaengg.ac.in</li>
+            <li>
+                <ul>
+                    <li><a href="https://www.facebook.com/sipnacoet/"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/SipnaCOETAmt"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/sipnacoet"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="http://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="http://www.google.com/"><i class="fa-brands fa-pinterest"></i></a></li>
+                </ul>
+            </li>
+        </ul>
+        <img class="nav-icon" src="./Media/hamburger.png" alt="">
+        <img src="./Media/close.png" alt="" class="nav-close">
+
+    </div>
+
+    <hr class="menu-sep">
+
+    <div class="nav">
+        <ul class="nav-links">
+            <li><a href="./index.html"> Home</a></li>
+            <li><a href="./inaugral.html"> Inagural Ceremony</a></li>
+            <li><a href=""> Silver Jubilee Committees</a></li>
+            <li><a href=""> Video Gallery</a></li>
+            <li><a href=""> Photo Gallery</a></li>
+            <li><a href="./contact.html"> Contact</a></li>
+        </ul>
+    </div>
+    <div class="flyer">
+        <img src="./Media/flyer.jpeg" alt="">
+        <img id="invitation" src="./Media/Invitation card.jpeg" alt="">
+    </div>
+
+    </body>
+    <script>
+        var loader = document.getElementById('preloader');
+
+        var mainLogo = document.getElementById('mainlogo');
+
+
+
+
+
+const navIcon = document.querySelector('.nav-icon');
+const navLinks = document.querySelector('.nav-links');
+const navClose = document.querySelector('.nav-close');
+
+navIcon.addEventListener('click', function () {
+  navLinks.classList.toggle('active');
+  navIcon.style.display = "none";
+  navClose.style.display = "block";
+});
+
+navClose.addEventListener('click', function () {
+    navLinks.classList.toggle('active');
+    navClose.style.display = "none";
+    navIcon.style.display = "block";
+});
+    </script>
+
+    </html>
