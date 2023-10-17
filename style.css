@@ -331,9 +331,24 @@
     transition: 1.2s ease !important;
 }
 
-#chatrapati{
-    filter: brightness(60%);
-    margin-top: 2rem;
+@media only screen and (min-width: 768px){
+    #chatrapati{
+        filter: brightness(60%);
+        margin-top: 2rem;
+    }
+    #chatrapati-mobile{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    #chatrapati-mobile{
+        filter: brightness(60%);
+        margin-top: 3rem;
+    }
+    #chatrapati{
+        display: none;
+    }
 }
 
 .wings{
@@ -359,10 +374,10 @@
     #home-logo{
         justify-content: center;
         position: absolute;
-        top: 37%;
+        top: 34%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 7rem;
+        width: 9rem;
         opacity: 0;
         transition: 1.2s ease !important;
     }
@@ -380,7 +395,7 @@
     .hero h1{
         position: absolute;
         text-align: center;
-        top: 62%;
+        top: 48%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
@@ -394,7 +409,7 @@
     .hero #head-para{
         position: absolute;
         text-align: center;
-        top: 69%;
+        top: 52%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
@@ -408,7 +423,7 @@
     #sub-para{
         position: absolute;
         text-align: center;
-        top: 82%;
+        top: 59%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: burlywood;
@@ -425,7 +440,7 @@
         position: absolute;
         font-family: 'Chivo', sans-serif;
         /* margin-left: 10rem; */
-        top: 118%;
+        top: 76%;
         text-align: center;
         left: 50%;
         transform: translate(-50%, -50%);
