@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./Media/sipnalogo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;1,600&family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <title>Sipna COET</title>
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li>
+                <i class="fa-solid fa-trophy" style="color: #FFD700;"></i>
+                <span>Accredited By NAAC with Grade 'A+'</span>
+            </li>
+            <li>
+                <i class="fa-solid fa-graduation-cap" style="color: #FFD700;"></i>
+                <span>NBA Accredited All Branches</span>
+            </li>
+        </ul>
+        <ul>
+            <li>FAQ</li>
+            <a href="./contact.html"><li>Contact</li></a>
+        </ul>
+    </div>
+
+    <div class="sec-header">
+        <img id="head-logo" src="./Media/head-logo-main.png" alt="">
+        <ul>
+            <li> 0721 - 2522341/42 (Office)</li>
+            <li>office@sipnaengg.ac.in</li>
+            <li>
+                <ul>
+                    <li><a href="https://www.facebook.com/sipnacoet/"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/SipnaCOETAmt"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/sipnacoet"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="http://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="http://www.google.com/"><i class="fa-brands fa-pinterest"></i></a></li>
+                </ul>
+            </li>
+        </ul>
+        <img class="nav-icon" src="./Media/hamburger.png" alt="">
+        <img src="./Media/close.png" alt="" class="nav-close">
+
+    </div>
+
+    <hr class="menu-sep">
+
+    <div class="nav">
+        <ul class="nav-links">
+            <li><a href="./index.html"> Home</a></li>
+            <li><a href="./inaugral.html"> Inagural Ceremony</a></li>
+            <li><a href=""> Silver Jubilee Committees</a></li>
+            <li><a href=""> Video Gallery</a></li>
+            <li><a href="./photos.html"> Photo Gallery</a></li>
+            <li><a href="./contact.html"> Contact</a></li>
+        </ul>
+    </div>
+
+    <section class="gaming-section">
+        <div class="container">
+          <h2>Photo Gallery</h2>
+          <!-- Search Bar -->
+          <div class="search-bar">
+            <input type="text" placeholder="Search for events">
+            <button onclick="searchGames()">Search</button>
+          </div>
+          <!-- Cards for Gaming Events -->
+          <div class="card-container" id="cardContainer">
+            <!-- Dynamic cards will be generated here -->
+          </div>
+          <div class="cards-container"></div>
+          <button class="show-more-btn">Show More</button>
+        </div>
+      </section>
+
+</body>
+<script>
+    var loader = document.getElementById('preloader');
+
+    var mainLogo = document.getElementById('mainlogo');
+
+
+
+
+
+const navIcon = document.querySelector('.nav-icon');
+const navLinks = document.querySelector('.nav-links');
+const navClose = document.querySelector('.nav-close');
+
+navIcon.addEventListener('click', function () {
+navLinks.classList.toggle('active');
+navIcon.style.display = "none";
+navClose.style.display = "block";
+});
+
+navClose.addEventListener('click', function () {
+navLinks.classList.toggle('active');
+navClose.style.display = "none";
+navIcon.style.display = "block";
+});
+
+
+window.addEventListener("scroll", function () {
+  let scrolled = window.scrollY;
+  let hero = document.querySelector(".hero");
+  let featuredGames = document.querySelector(".featured-games");
+  let howItWorks = document.querySelector(".how-it-works");
+  let testimonials = document.querySelector(".testimonials");
+  let getStarted = document.querySelector(".get-started");
+
+  // Adjust the speed of parallax effect here (smaller value for slower effect)
+  let parallaxSpeed = 0.2; // Reduced parallax speed
+
+  hero.style.transform = "translateY(" + scrolled * parallaxSpeed + "px)";
+  // featuredGames.style.transform = "translateY(" + scrolled * parallaxSpeed * 0.5 + "px)"; // Reduced translation
+  // howItWorks.style.transform = "translateY(" + scrolled * parallaxSpeed * 0.3 + "px)"; // Reduced translation
+  // testimonials.style.transform = "translateY(" + scrolled * parallaxSpeed * 0.4 + "px)"; // Reduced translation
+  // getStarted.style.transform = "translateY(" + scrolled * parallaxSpeed * 0.2 + "px)"; // Reduced translation
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const testimonials = document.querySelectorAll(".testimonial");
+
+  function showTestimonials() {
+    testimonials.forEach((testimonial) => {
+      const elementPosition = testimonial.getBoundingClientRect().top;
+      const screenHeight = window.innerHeight;
+
+      if (elementPosition < screenHeight * 0.8) {
+        testimonial.classList.add("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", showTestimonials);
+});
+
+
+
+
+
+
+// Smooth Scroll Function
+function smoothScroll(target) {
+  const element = document.querySelector(target);
+  if (element) {
+      window.scrollTo({
+          top: element.offsetTop - 80, // Adjust the offset as needed for proper scrolling position
+          behavior: "smooth"
+      });
+  }
+}
+
+// Scroll to Section when Navbar Link is Clicked
+const navbarLinks = document.querySelectorAll(".nav-links1 a");
+navbarLinks.forEach(link => {
+  link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const target = link.getAttribute("href");
+      smoothScroll(target);
+  });
+});
+
+
+// Toggle Navbar Links on "Hamburger" Icon Click
+
+
+navIcon.addEventListener('click', function () {
+  navLinks.classList.toggle('active');
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const testimonials = document.querySelectorAll('.testimonial');
+
+  function showTestimonials() {
+    testimonials.forEach(testimonial => {
+      const elementPosition = testimonial.getBoundingClientRect().top;
+      const screenHeight = window.innerHeight;
+
+      if (elementPosition < screenHeight * 0.8) {
+        testimonial.classList.add('show');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', showTestimonials);
+});
+
+
+// Sample data for gaming events (Call of Duty, BGMI, and Valorant)
+const cardData = [
+  {
+    game: "Call of Duty",
+    prizePool: "$500",
+    entryFee: "$10",
+    lastDateOfRegistration: "2023-07-31",
+    datePosted: "2023-07-20",
+    postedBy: "User123",
+    image: "./Media/Photo Gallery/pic (1).jpeg",
+    description: "Battle it out in the intense COD tournament. Join now!",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (2).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (3).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (4).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (5).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (6).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (7).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (8).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (9).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (10).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (11).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (12).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "BGMI (Battlegrounds Mobile India)",
+    prizePool: "$300",
+    entryFee: "$5",
+    lastDateOfRegistration: "2023-08-05",
+    datePosted: "2023-07-21",
+    postedBy: "GamingMaster",
+    image: "./Media/Photo Gallery/pic (13).jpeg",
+    description: "Prove your skills in the ultimate BGMI championship.",
+  },
+  {
+    game: "Valorant",
+    prizePool: "$800",
+    entryFee: "$15",
+    lastDateOfRegistration: "2023-08-10",
+    datePosted: "2023-07-22",
+    postedBy: "ProGamer456",
+    image: "./Media/Photo Gallery/pic (14).jpeg",
+    description: "Team up and strategize to win the Valorant showdown.",
+  },
+  // Add more gaming events here
+];
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cardsContainer = document.querySelector('.cards-container');
+  const showMoreBtn = document.querySelector('.show-more-btn');
+  const cardsPerPage = 8 ; // Number of cards to show per click
+  let currentPage = 1; // Track the current page
+
+  function createCard(cardData) {
+    // Create the card element
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    // Set the inner HTML of the card
+    card.innerHTML = `
+        <input type="checkbox" name="" id="${cardData.image}">
+            <label for="${cardData.image}">
+                <img src="${cardData.image}" alt="${cardData.game}">
+            </label>`
+    //   <h3>${cardData.game}</h3>
+    //   <p>${cardData.description}</p>
+    //   <p><strong>Entry Fee:</strong> ${cardData.entryFee}</p>
+    //   <p><strong>Prize Pool:</strong> ${cardData.prizePool}</p>
+    //   <p><strong>Last Date of Registration:</strong> ${cardData.lastDateOfRegistration}</p>
+    //   <p><strong>Posted by:</strong> ${cardData.postedBy}</p>
+    //   <p><strong>Posted Date:</strong> ${cardData.datePosted}</p>
+    ;
+
+    return card;
+  }
+
+  function showCards(page) {
+    if(page==1){
+      cardsContainer.innerHTML='';
+    }
+    const startIndex = (page - 1) * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
+
+    // Create and display cards within the current page range
+    for (let i = startIndex; i < Math.min(endIndex, cardData.length); i++) {
+      const card = createCard(cardData[i]);
+      cardsContainer.appendChild(card); // Append the new card instead of setting innerHTML
+    }
+  }
+
+  function toggleShowMoreBtn() {
+    const totalCards = cardData.length;
+    const totalPages = Math.ceil(totalCards / cardsPerPage);
+
+    if (currentPage < totalPages) {
+      showMoreBtn.textContent = 'Show More';
+    } else {
+      showMoreBtn.textContent = 'Show Less';
+    }
+  }
+
+  showMoreBtn.addEventListener('click', function() {
+    const totalCards = cardData.length;
+    const totalPages = Math.ceil(totalCards / cardsPerPage);
+
+    if (currentPage < totalPages) {
+      currentPage++;
+    } else {
+      currentPage = 1;
+    }
+
+    showCards(currentPage);
+    toggleShowMoreBtn();
+  });
+
+  // Show the initial cards
+  showCards(currentPage);
+  toggleShowMoreBtn();
+});
+
+// card.addEventListener('click', function(){
+//     if (document.getElementById(`${cardData.image}`).checked=true) {
+//         card.style.width="10px";
+//       }
+// })
+
+
+function searchGames() {
+  const searchInput = document.querySelector(".search-bar input");
+  const filter = searchInput.value.toUpperCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach((card) => {
+    const gameName = card.querySelector("h3").textContent.toUpperCase();
+    if (gameName.includes(filter)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+</script>
+
+</html>

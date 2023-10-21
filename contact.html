@@ -57,13 +57,13 @@
             <li><a href="./inaugral.html"> Inagural Ceremony</a></li>
             <li><a href=""> Silver Jubilee Committees</a></li>
             <li><a href=""> Video Gallery</a></li>
-            <li><a href=""> Photo Gallery</a></li>
+            <li><a href="./photos.html"> Photo Gallery</a></li>
             <li><a href="./contact.html"> Contact</a></li>
         </ul>
     </div>
 
     <div class="contact-card">
-        <img src="./Media/A1.jpg" alt="">
+        <img id="contact-img" src="./Media/A1.jpg" alt="">
         <p>Prof. A. S. Joshi</p>
         <p class="phnum">9371552816</p>
     </div>
@@ -71,7 +71,7 @@
     </body>
     <script>
         var loader = document.getElementById('preloader');
-
+        var contactImage = document.getElementById('contact-img');
         var mainLogo = document.getElementById('mainlogo');
 
 
@@ -82,6 +82,10 @@ const navIcon = document.querySelector('.nav-icon');
 const navLinks = document.querySelector('.nav-links');
 const navClose = document.querySelector('.nav-close');
 
+setInterval(() => {
+    contactImage.style.cssText="-webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);"
+    
+}, 3000);
 navIcon.addEventListener('click', function () {
   navLinks.classList.toggle('active');
   navIcon.style.display = "none";
